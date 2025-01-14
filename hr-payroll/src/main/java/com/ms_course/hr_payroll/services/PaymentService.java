@@ -22,7 +22,7 @@ public class PaymentService {
         return new PaymentEntity(worker.getName(),worker.getDailyIncome(),days);
     }
 
-    // MÉTODO COM REST TEMPLATE
+    // * METODO COM REST TEMPLATE
 
     /* @Value("${hr-worker.host}")
     private String workerHost;*/
@@ -30,17 +30,16 @@ public class PaymentService {
    /* @Autowired
     private RestTemplate restTemplate;*/
 
-//    public PaymentEntity getPayment(long workerId, int days){
-//
-//        Map<String,String> uriVariables = new HashMap<>();
-//        uriVariables.put("id",""+workerId);
-//
-//        WorkerEntity worker = restTemplate.getForObject(workerHost + "/workers/{id}",
-//                WorkerEntity.class,
-//                uriVariables);
-//
-//
-//        return new PaymentEntity(worker.getName(),worker.getDailyIncome(),days);
-//    }
+ /*   public PaymentEntity getPayment(long workerId, int days){
 
+        Map<String,String> uriVariables = new HashMap<>();
+        uriVariables.put("id",""+workerId);
+
+        WorkerEntity worker = restTemplate.getForObject(workerHost + "/workers/{id}",
+                WorkerEntity.class,
+                uriVariables);
+
+
+        return new PaymentEntity(worker.getName(),worker.getDailyIncome(),days);
+    }*/
 }

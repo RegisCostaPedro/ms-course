@@ -3,7 +3,7 @@ package com.ms_course.hr_payroll.entities;
 import java.io.Serializable;
 import java.util.Objects;
 
-
+// Criando o modelo base de worker entity que está em outro projeto
 public class WorkerEntity implements Serializable {
     private static final long serialVersionUID = 1L;
 
