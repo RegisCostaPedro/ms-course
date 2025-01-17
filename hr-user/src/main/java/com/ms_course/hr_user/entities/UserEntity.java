@@ -19,6 +19,7 @@ public class UserEntity implements Serializable {
     private Long id;
 
     @Unique
+    @Column(unique = true)
     private String email;
 
     private String name;
