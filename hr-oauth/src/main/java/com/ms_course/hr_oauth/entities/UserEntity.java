@@ -2,15 +2,17 @@ package com.ms_course.hr_oauth.entities;
 
 
 import org.checkerframework.common.aliasing.qual.Unique;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
+import java.util.*;
+import java.util.stream.Collectors;
 
 
-public class UserEntity implements Serializable {
+public class UserEntity implements UserDetails, Serializable {
     private static final long serialVersionUID = 1L;
 
 
@@ -38,8 +40,6 @@ public class UserEntity implements Serializable {
     }
 
 
-
-
     public Long getId() {
         return id;
     }
@@ -64,8 +64,41 @@ public class UserEntity implements Serializable {
         this.name = name;
     }
 
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return roles
+                .stream()
+                .map(x -> new SimpleGrantedAuthority(x.getRoleName()))
+                .collect(Collectors.toList());
+    }
+
     public String getPassword() {
         return password;
+    }
+
+    @Override
+    public String getUsername() {
+        return email;
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return true;
     }
 
     public void setPassword(String password) {
