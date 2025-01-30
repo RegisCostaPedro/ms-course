@@ -18,7 +18,7 @@ public class UserService implements UserDetailsService {
     @Autowired
     UserFeignClient userFeignClient;
 
-    // Método de teste
+    // Metodo de teste
     public UserEntity findByEmail(String email) {
         UserEntity user = userFeignClient.findByEmail(email).getBody();
 
